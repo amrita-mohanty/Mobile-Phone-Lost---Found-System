@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- the application context definition for the springapp DispatcherServlet -->
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+   
+   <bean name="/newLogin*" class="springapp.web.LoginController">
+        <property name="sessionForm" value="true"/>
+        <property name="commandName" value="login"/>
+        <property name="commandClass" value="springapp.service.Login"/>
+        <property name="validator">
+            <bean class="springapp.service.LoginValidator"/>
+        </property>
+        <property name="formView" value="newLogin"/>
+        <property name="successView" value="messages.htm"/>
+        <property name="loginManager" ref="loginManager"/>
+        <property name="messageManager" ref="messageManager"/>
+    </bean>
+   
+   <bean name="/login*" class="springapp.web.LoginController">
+        <property name="sessionForm" value="true"/>
+        <property name="commandName" value="login"/>
+        <property name="commandClass" value="springapp.service.Login"/>
+        <property name="validator">
+            <bean class="springapp.service.LoginValidator"/>
+        </property>
+        <property name="formView" value="login"/>
+        <property name="successView" value="messages.htm"/>
+        <property name="loginManager" ref="loginManager"/>
+        <property name="messageManager" ref="messageManager"/>
+    </bean>
+    
+    <bean name="/register.htm*" class="springapp.web.RegisterController">
+        <property name="sessionForm" value="true"/>
+        <property name="commandName" value="register"/>
+        <property name="commandClass" value="springapp.domain.User"/>
+        <property name="validator">
+            <bean class="springapp.service.RegisterValidator"/>
+        </property>
+        <property name="formView" value="register"/>
+        <property name="successView" value="login.htm"/>
+        <property name="registerManager" ref="registerManager"/>
+    </bean>
+    
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>        
+    </bean>
+
+</beans>

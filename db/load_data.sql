@@ -1,0 +1,14 @@
+INSERT INTO products (id, description, price) values(1, 'Lamp', 5.78);
+INSERT INTO products (id, description, price) values(2, 'Table', 75.29);
+INSERT INTO products (id, description, price) values(3, 'Chair', 22.81);
+INSERT INTO users (username, password, mobileNumber, emailAddress) values('rahul', 'random', 'a','b');
+INSERT INTO users (username, password, mobileNumber, emailAddress) values('rahul1', 'random1', 'a1','b1');
+INSERT INTO messages (username, message) values('rahul1', 'message1');
+INSERT INTO messages (username, message) values('rahul', 'message2');
+INSERT INTO messages (username, message) values('rahul', 'I found your phone');
+INSERT INTO messages (username, message) values('rahul', 'I have your phone');
+INSERT INTO messages (username, message) values('rahul1', 'rahul1: Contact me at 8978978980');
+INSERT INTO messages (username, message) values('rahul1', 'rahul1: message1');
+INSERT INTO messages (username, message) values('rahul1', 'rahul1: I found your phone');
+INSERT INTO messages (username, message) values('rahul1', 'rahul1: I have your phone');
+INSERT INTO messages (username, message) values('rahul1', 'rahul1: Contact me at 8978978980');
